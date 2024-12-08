@@ -1,6 +1,8 @@
+package algorithm_basic;
+
 import java.util.*;
 
-public class Main {
+public class NumberingComplexes_BFS {
     static int[][] map;             // 지도 정보
     static boolean[][] visited;     // 방문 체크 배열
     static int n;                   // 지도 크기
@@ -25,8 +27,8 @@ public class Main {
         // 단지 탐색
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (map[i][j] == 1 && !visited[i][j]) { // 방문하지 않은 집
-                    int size = dfs(i, j);              // 단지 크기 계산
+                if (map[i][j] == 1 && !visited[i][j]) { // 방문하지 않은 집 발견
+                    int size = bfs(i, j);              // BFS로 단지 크기 계산
                     complexSizes.add(size);
                 }
             }
@@ -40,20 +42,30 @@ public class Main {
         }
     }
 
-    // DFS를 이용해 단지 크기 계산
-    static int dfs(int x, int y) {
-        visited[x][y] = true; // 현재 노드 방문 처리
-        int size = 1; // 현재 노드 포함 크기
+    // BFS를 이용해 단지 크기 계산
+    static int bfs(int x, int y) {
+        Queue<int[]> queue = new LinkedList<>();
+        queue.add(new int[]{x, y});
+        visited[x][y] = true;
+        int size = 1;
 
-        // 상하좌우 탐색
-        for (int i = 0; i < 4; i++) {
-            int nx = x + dx[i];
-            int ny = y + dy[i];
+        while (!queue.isEmpty()) {
+            int[] current = queue.poll(); // 큐에서 현재 좌표를 꺼냄
+            int cx = current[0];
+            int cy = current[1];
 
-            // 유효 범위 내에 있고, 연결된 집(1)이면서 방문하지 않았다면 탐색
-            if (nx >= 0 && ny >= 0 && nx < n && ny < n) {
-                if (map[nx][ny] == 1 && !visited[nx][ny]) {
-                    size += dfs(nx, ny); // 연결된 집의 크기를 누적
+            // 상하좌우 탐색
+            for (int i = 0; i < 4; i++) {
+                int nx = cx + dx[i];
+                int ny = cy + dy[i];
+
+                // 유효 범위 내에 있고, 연결된 집(1)이면서 방문하지 않았다면 큐에 추가
+                if (nx >= 0 && ny >= 0 && nx < n && ny < n) {
+                    if (map[nx][ny] == 1 && !visited[nx][ny]) {
+                        queue.add(new int[]{nx, ny});
+                        visited[nx][ny] = true;
+                        size++; // 단지 크기 증가
+                    }
                 }
             }
         }
