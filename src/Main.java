@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.util.*;
 
 public class Main {
@@ -60,3 +61,20 @@ public class Main {
         return size;
     }
 }
+=======
+import java.io.IOException;
+import java.util.regex.Pattern;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        int answer = 0;
+        String a = "hello";
+        String b = "ohell";
+        String str = "";
+        StringBuilder sb = new StringBuilder();
+
+
+    }
+}
+
+>>>>>>> 72ea20f4bc4de27afc9e1cf9aa5cd519e5cf4eb6
