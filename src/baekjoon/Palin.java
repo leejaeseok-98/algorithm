@@ -7,7 +7,14 @@ import java.io.InputStreamReader;
 public class Palin {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String num = br.readLine();
-        StringBuilder sb = new StringBuilder();
+        int num = Integer.parseInt(br.readLine());
+        int answer = 0;
+        while (true) {
+            for (int i = 0; i < num; i++) {
+                int digit = num % 10;
+                answer = answer * 10 + digit;
+                num /= 10;
+            }
+        }
     }
 }
