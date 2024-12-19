@@ -6,7 +6,5 @@ public class Practice {
         int num1 = 5;
         int num2 = 2;
 
-        int answer = Integer.parseInt((double)num1/num2);
-        System.out.println(answer);
     }
 }
