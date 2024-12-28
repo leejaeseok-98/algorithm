@@ -3,20 +3,17 @@ package baekjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-<<<<<<< HEAD
+
 import java.util.Arrays;
 import java.util.Comparator;
-=======
 import java.util.TreeMap;
 import java.util.TreeSet;
->>>>>>> 81dd02078b3802cf86333d0188db44ed71185fe2
 
 public class Bj_1181 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         TreeSet<String> set = new TreeSet<>();
         int T = Integer.parseInt(br.readLine());
-<<<<<<< HEAD
         String[] arr = new String[T];
         for (int i = 0;i<T;i++){
             arr[i] = br.readLine();
@@ -42,7 +39,6 @@ public class Bj_1181 {
         }
         System.out.println(sb);
 
-=======
         for (int i = 0; i<T;i++){
             set.add(br.readLine());
         }
@@ -53,6 +49,5 @@ public class Bj_1181 {
 //        for (int i = 0; i < set.size();i++){
 //            if ()
 //        }
->>>>>>> 81dd02078b3802cf86333d0188db44ed71185fe2
     }
 }
