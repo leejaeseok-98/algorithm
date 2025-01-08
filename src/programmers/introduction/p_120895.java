@@ -10,5 +10,6 @@ public class p_120895 {
         char temp = a[num1];
         a[num1] = a[num2];
         a[num2] = temp;
+
     }
 }

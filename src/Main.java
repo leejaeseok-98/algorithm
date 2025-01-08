@@ -1,16 +1,27 @@
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
 public class Main {
-    public static void main(String[] args) {
-        int balls = 3;
-        int share = 2;
-        int answer = 0;
-        answer = factorial(balls) / (factorial(balls-share)*factorial(share));
-        System.out.println(answer);
-    }
-    static int factorial(int a){
-        if (a == 1){
-            return 1;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(br.readLine());
+        int[] arr2 = new int[T];
+        int sum = 0;
+        int count = 0;
+
+        StringTokenizer st = new StringTokenizer(br.readLine()," ");
+        for (int i = 0; i <T;i++){
+            arr2[i] = Integer.parseInt(st.nextToken());
+            if (arr2[i] == 1){
+                count++;
+            }else {
+                count = 0;
+            }
+            sum += count;
         }
-        return a*factorial(a-1);
+        System.out.println(sum);
     }
 }
